@@ -1,6 +1,6 @@
 # Teen Developer Portfolio
 
-A modern, full-stack portfolio website built with Next.js (frontend) and Django (backend).
+A modern portfolio website built with Next.js.
 
 ## Features
 
@@ -9,38 +9,29 @@ A modern, full-stack portfolio website built with Next.js (frontend) and Django 
 - About section
 - Projects showcase
 - Skills display
-- Contact form with Django backend integration
+- Contact form
 - Smooth scrolling navigation
 
 ## Tech Stack
 
-### Frontend
 - Next.js 15
 - React 19
 - TypeScript
 - Tailwind CSS
 
-### Backend
-- Django 5.2
-- Django REST Framework
-- django-cors-headers
-- SQLite database
-
 ## Getting Started
 
 ### Prerequisites
 - Node.js and npm
-- Python 3.x
-- pip
 
-### Running the Frontend
+### Installation
 
 1. Navigate to the frontend directory:
 ```bash
 cd frontend
 ```
 
-2. Install dependencies (if not already done):
+2. Install dependencies:
 ```bash
 npm install
 ```
@@ -50,26 +41,7 @@ npm install
 npm run dev
 ```
 
-The frontend will be available at [http://localhost:3000](http://localhost:3000)
-
-### Running the Backend
-
-1. Navigate to the backend directory:
-```bash
-cd backend
-```
-
-2. Run migrations (if not already done):
-```bash
-python3 manage.py migrate
-```
-
-3. Start the Django server:
-```bash
-python3 manage.py runserver
-```
-
-The backend API will be available at [http://localhost:8000](http://localhost:8000)
+The application will be available at [http://localhost:3000](http://localhost:3000)
 
 ## Customization
 
@@ -96,26 +68,11 @@ The backend API will be available at [http://localhost:8000](http://localhost:80
 
 ```
 portfolio/
-├── frontend/               # Next.js frontend
-│   ├── app/               # Next.js app directory
-│   ├── components/        # React components
-│   └── public/            # Static assets
-└── backend/               # Django backend
-    ├── backend/           # Django project settings
-    ├── contact/           # Contact app
-    └── portfolio/         # Portfolio app
+└── frontend/               # Next.js application
+    ├── app/               # Next.js app directory
+    ├── components/        # React components
+    └── public/            # Static assets
 ```
-
-## API Endpoints
-
-- `POST /api/contact/` - Submit contact form
-
-## Development Tips
-
-- Both servers need to be running for the contact form to work
-- The frontend runs on port 3000
-- The backend runs on port 8000
-- CORS is configured to allow requests from localhost:3000
 
 ## Next Steps
 
@@ -123,7 +80,7 @@ portfolio/
 2. Add your actual projects
 3. Replace social media links with your profiles
 4. Consider adding more features like a blog or testimonials
-5. Deploy to production (Vercel for frontend, Railway/Heroku for backend)
+5. Deploy to production (Vercel recommended)
 
 ## License
 

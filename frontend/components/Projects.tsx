@@ -9,8 +9,8 @@ export default function Projects() {
     {
       title: "Portfolio Website",
       description:
-        "A full-stack portfolio website built with Django and Next.js featuring a contact form, project showcase, and modern glassmorphism design.",
-      technologies: ["Next.js", "Django", "TypeScript", "Tailwind CSS", "Framer Motion"],
+        "A modern portfolio website built with Next.js featuring a contact form, project showcase, and modern glassmorphism design.",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
       github: "#",
       demo: "#",
       featured: true,
@@ -19,7 +19,7 @@ export default function Projects() {
       title: "Project Two",
       description:
         "Add your second project here. Describe what it does and what technologies you used to build it.",
-      technologies: ["React", "Node.js", "MongoDB"],
+      technologies: ["React", "TypeScript", "Tailwind CSS"],
       github: "#",
       demo: "#",
     },
@@ -27,7 +27,7 @@ export default function Projects() {
       title: "Project Three",
       description:
         "Add your third project here. Showcase your skills and what makes this project unique and interesting.",
-      technologies: ["Python", "Django", "PostgreSQL"],
+      technologies: ["Next.js", "React", "JavaScript"],
       github: "#",
       demo: "#",
     },

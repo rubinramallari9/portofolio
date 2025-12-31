@@ -21,37 +21,17 @@ export default function Contact() {
     setIsSubmitting(true);
     setStatus({ type: "", message: "" });
 
-    try {
-      const response = await fetch("http://localhost:8000/api/contact/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setStatus({
-          type: "success",
-          message: "Message sent successfully! I'll get back to you soon.",
-        });
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        const errorData = await response.json();
-        setStatus({
-          type: "error",
-          message:
-            errorData.message || "Failed to send message. Please try again.",
-        });
-      }
-    } catch (error) {
+    // Simulate form submission
+    // TODO: Integrate with your preferred contact form service (e.g., Formspree, EmailJS, or API endpoint)
+    setTimeout(() => {
+      console.log("Contact form submitted:", formData);
       setStatus({
-        type: "error",
-        message: "Network error. Please check your connection and try again.",
+        type: "success",
+        message: "Message sent successfully! I'll get back to you soon.",
       });
-    } finally {
+      setFormData({ name: "", email: "", message: "" });
       setIsSubmitting(false);
-    }
+    }, 1000);
   };
 
   const handleChange = (

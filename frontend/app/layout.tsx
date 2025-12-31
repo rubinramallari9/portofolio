@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Teen Developer Portfolio",
-  description: "Portfolio website showcasing projects and skills in web development with Django and Next.js",
+  title: "Rubin Ramallari - Teen Developer Portfolio",
+  description: "Rubin Ramallari's portfolio website showcasing web development projects built with Next.js",
 };
 
 export default function RootLayout({

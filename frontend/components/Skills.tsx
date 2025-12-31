@@ -18,13 +18,8 @@ export default function Skills() {
       icon: "💻",
     },
     {
-      category: "Backend",
-      skills: ["Django", "Python", "REST APIs", "PostgreSQL", "SQLite"],
-      icon: "⚙️",
-    },
-    {
       category: "Tools & Others",
-      skills: ["Git", "GitHub", "VS Code", "npm", "Vercel", "Docker"],
+      skills: ["Git", "GitHub", "VS Code", "npm", "Vercel", "Figma"],
       icon: "🛠️",
     },
   ];
@@ -63,7 +58,7 @@ export default function Skills() {
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-16" />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={categoryIndex}

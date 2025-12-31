@@ -56,7 +56,7 @@ export default function Hero() {
             transition={{ delay: 0.3, duration: 0.8 }}
           >
             <span className="gradient-text bg-[length:200%_auto] animate-gradient-bg">
-              Your Name
+              Rubin Ramallari
             </span>
           </motion.h1>
 
@@ -69,7 +69,7 @@ export default function Hero() {
           >
             Teen Developer
             <span className="text-blue-400 mx-3">|</span>
-            Full Stack Enthusiast
+            Frontend Enthusiast
           </motion.p>
 
           {/* Description */}
@@ -80,9 +80,9 @@ export default function Hero() {
             transition={{ delay: 0.7 }}
           >
             Building awesome web applications with
-            <span className="text-blue-400 font-semibold"> Django </span>
+            <span className="text-purple-400 font-semibold"> Next.js </span>
             and
-            <span className="text-purple-400 font-semibold"> Next.js</span>
+            <span className="text-blue-400 font-semibold"> React</span>
           </motion.p>
 
           {/* CTAs */}

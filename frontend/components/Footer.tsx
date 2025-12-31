@@ -36,7 +36,7 @@ export default function Footer() {
               Portfolio
             </h3>
             <p className="text-text-tertiary text-sm">
-              &copy; {currentYear} Your Name. All rights reserved.
+              &copy; {currentYear} Rubin Ramallari. All rights reserved.
             </p>
           </div>
 
@@ -82,7 +82,7 @@ export default function Footer() {
             Built with{" "}
             <span className="text-blue-400">Next.js</span>
             {" "}+{" "}
-            <span className="text-purple-400">Django</span>
+            <span className="text-purple-400">TypeScript</span>
             {" "}+{" "}
             <span className="gradient-text">Passion</span>
           </p>

@@ -40,7 +40,7 @@ export default function About() {
                 I'm a <span className="text-blue-400 font-semibold">passionate teen developer</span> with a love for creating web
                 applications that solve real-world problems. My journey in programming
                 started with curiosity, and it has grown into a passion for
-                full-stack development.
+                web development.
               </motion.p>
 
               <motion.p
@@ -51,9 +51,9 @@ export default function About() {
                 transition={{ delay: 0.4 }}
               >
                 I specialize in building modern web applications using{" "}
-                <span className="text-blue-400 font-semibold">Django</span> for backend development and{" "}
                 <span className="text-purple-400 font-semibold">Next.js & React</span> for creating beautiful,
-                responsive user interfaces.
+                responsive user interfaces with <span className="text-blue-400 font-semibold">TypeScript</span> and{" "}
+                <span className="text-purple-400 font-semibold">Tailwind CSS</span>.
               </motion.p>
 
               <motion.p
