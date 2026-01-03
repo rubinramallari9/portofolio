@@ -1,11 +1,87 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { HiArrowDown } from "react-icons/hi";
 
 export default function Hero() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  // Mouse follower effect
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  // Magnetic button effect
+  const buttonX = useMotionValue(0);
+  const buttonY = useMotionValue(0);
+  const buttonSpringX = useSpring(buttonX, { stiffness: 300, damping: 20 });
+  const buttonSpringY = useSpring(buttonY, { stiffness: 300, damping: 20 });
+
+  const handleButtonMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (!buttonRef.current) return;
+    const rect = buttonRef.current.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const distanceX = e.clientX - centerX;
+    const distanceY = e.clientY - centerY;
+
+    buttonX.set(distanceX * 0.2);
+    buttonY.set(distanceY * 0.2);
+  };
+
+  const handleButtonMouseLeave = () => {
+    buttonX.set(0);
+    buttonY.set(0);
+  };
+
+  // Stagger animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 10,
+      },
+    },
+  };
+
+  const titleVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 80,
+        damping: 12,
+        mass: 1,
+      },
+    },
   };
 
   return (
@@ -13,6 +89,14 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
+      {/* Mouse Follower Light Effect */}
+      <div
+        className="pointer-events-none fixed inset-0 z-0 transition-opacity duration-300"
+        style={{
+          background: `radial-gradient(500px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(96, 165, 250, 0.25), transparent 60%)`,
+        }}
+      />
+
       {/* Ambient background effects */}
       <div className="absolute inset-0">
         {/* Gradient mesh background - Minimalist Slate */}
@@ -34,67 +118,85 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
         >
           {/* Greeting */}
           <motion.p
+            variants={itemVariants}
             className="text-text-secondary text-xl md:text-2xl mb-6 font-mono"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
           >
             {"<"}Hi, I'm{"/>"}
           </motion.p>
 
-          {/* Name with gradient */}
+          {/* Name with gradient and shimmer */}
           <motion.h1
+            variants={titleVariants}
             className="text-6xl md:text-8xl lg:text-9xl font-black mb-6 leading-tight"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
           >
-            <span className="gradient-text bg-[length:200%_auto] animate-gradient-bg">
-              Rubin Ramallari
+            <span className="relative inline-block">
+              <span className="gradient-text bg-[length:200%_auto]">
+                Rubin Ramallari
+              </span>
+              {/* Shimmer overlay */}
+              <motion.span
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent bg-[length:200%_100%]"
+                style={{
+                  backgroundClip: "text",
+                  WebkitBackgroundClip: "text",
+                  backgroundPosition: "-200% 0",
+                }}
+                animate={{
+                  backgroundPosition: ["200% 0", "-200% 0"],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  repeatDelay: 5,
+                  ease: "linear",
+                }}
+              />
             </span>
           </motion.h1>
 
           {/* Subtitle */}
           <motion.p
+            variants={itemVariants}
             className="text-2xl md:text-3xl lg:text-4xl text-text-secondary mb-8 font-medium"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
           >
-            Teen Developer
+            Software Developer
             <span className="text-slate-400 mx-3">|</span>
-            Frontend Enthusiast
+            Creative Technologist
           </motion.p>
 
           {/* Description */}
           <motion.p
+            variants={itemVariants}
             className="text-lg md:text-xl text-text-tertiary mb-12 max-w-2xl mx-auto leading-relaxed"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.7 }}
           >
-            Building awesome web applications with
-            <span className="text-blue-400 font-semibold"> Next.js </span>
-            and
-            <span className="text-blue-400 font-semibold"> React</span>
+            Crafting digital experiences from interactive
+            <span className="text-blue-400 font-semibold"> web apps </span>
+            to immersive
+            <span className="text-blue-400 font-semibold"> 3D game worlds</span>
           </motion.p>
 
           {/* CTAs */}
           <motion.div
+            variants={itemVariants}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9 }}
           >
+            {/* Magnetic Button */}
             <motion.button
+              ref={buttonRef}
               onClick={() => scrollToSection("projects")}
               className="px-8 py-4 bg-blue-400 rounded-xl font-semibold text-black overflow-hidden shadow-lg hover:shadow-[0_0_40px_rgba(96,165,250,0.5)] hover:bg-blue-300 transition-all duration-300"
+              style={{
+                x: buttonSpringX,
+                y: buttonSpringY,
+              }}
+              onMouseMove={handleButtonMouseMove}
+              onMouseLeave={handleButtonMouseLeave}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -113,10 +215,8 @@ export default function Hero() {
 
           {/* Scroll indicator */}
           <motion.div
+            variants={itemVariants}
             className="flex flex-col items-center gap-2 text-text-tertiary"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2 }}
           >
             <span className="text-sm font-medium">Scroll to explore</span>
             <motion.div
