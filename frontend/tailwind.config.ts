@@ -9,19 +9,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Dark theme colors
-        'bg-dark': '#0A0A0F',
-        'bg-card': '#13131A',
-        'bg-elevated': '#1C1C24',
+        // Minimalist Slate theme colors
+        'bg-dark': '#000000',
+        'bg-card': '#0A0A0A',
+        'bg-elevated': '#1A1A1A',
 
         // Accent colors
-        'accent-primary': '#3B82F6',
-        'accent-secondary': '#8B5CF6',
+        'accent-primary': '#60A5FA',
+        'accent-secondary': '#475569',
 
         // Text colors
         'text-primary': '#F8FAFC',
         'text-secondary': '#94A3B8',
         'text-tertiary': '#64748B',
+
+        // Border color
+        'border': 'rgba(71, 85, 105, 0.2)',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

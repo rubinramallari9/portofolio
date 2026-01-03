@@ -15,17 +15,17 @@ export default function Hero() {
     >
       {/* Ambient background effects */}
       <div className="absolute inset-0">
-        {/* Gradient mesh background */}
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-float" />
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-float" style={{ animationDelay: "2s" }} />
-        <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-pink-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-float" style={{ animationDelay: "4s" }} />
+        {/* Gradient mesh background - Minimalist Slate */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-slate-500/10 rounded-full mix-blend-multiply filter blur-3xl animate-float" />
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-slate-400/10 rounded-full mix-blend-multiply filter blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+        <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-blue-500/10 rounded-full mix-blend-multiply filter blur-3xl animate-float" style={{ animationDelay: "4s" }} />
 
         {/* Grid overlay */}
         <div
-          className="absolute inset-0 opacity-10"
+          className="absolute inset-0 opacity-5"
           style={{
-            backgroundImage: `linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(148, 163, 184, 0.1) 1px, transparent 1px)`,
             backgroundSize: "50px 50px",
           }}
         />
@@ -68,7 +68,7 @@ export default function Hero() {
             transition={{ delay: 0.5 }}
           >
             Teen Developer
-            <span className="text-blue-400 mx-3">|</span>
+            <span className="text-slate-400 mx-3">|</span>
             Frontend Enthusiast
           </motion.p>
 
@@ -80,7 +80,7 @@ export default function Hero() {
             transition={{ delay: 0.7 }}
           >
             Building awesome web applications with
-            <span className="text-purple-400 font-semibold"> Next.js </span>
+            <span className="text-blue-400 font-semibold"> Next.js </span>
             and
             <span className="text-blue-400 font-semibold"> React</span>
           </motion.p>
@@ -94,17 +94,16 @@ export default function Hero() {
           >
             <motion.button
               onClick={() => scrollToSection("projects")}
-              className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl font-semibold text-white overflow-hidden shadow-lg hover:shadow-[0_0_40px_rgba(59,130,246,0.5)] transition-all duration-300"
+              className="px-8 py-4 bg-blue-400 rounded-xl font-semibold text-black overflow-hidden shadow-lg hover:shadow-[0_0_40px_rgba(96,165,250,0.5)] hover:bg-blue-300 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="relative z-10">View My Work</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              View My Work
             </motion.button>
 
             <motion.button
               onClick={() => scrollToSection("contact")}
-              className="px-8 py-4 glass rounded-xl font-semibold text-text-primary border border-blue-500/30 hover:border-blue-500 hover:bg-white/10 transition-all duration-300"
+              className="px-8 py-4 bg-transparent rounded-xl font-semibold text-text-primary border-2 border-slate-600 hover:border-slate-400 hover:bg-slate-900/50 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -124,7 +123,7 @@ export default function Hero() {
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
             >
-              <HiArrowDown className="text-2xl text-blue-400" />
+              <HiArrowDown className="text-2xl text-slate-400" />
             </motion.div>
           </motion.div>
         </motion.div>

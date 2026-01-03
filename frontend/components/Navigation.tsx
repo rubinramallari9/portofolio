@@ -73,7 +73,7 @@ export default function Navigation() {
                   >
                     {item.label}
                     <motion.span
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-slate-400 rounded-full"
                       initial={{ scaleX: 0 }}
                       whileHover={{ scaleX: 1 }}
                       transition={{ duration: 0.3 }}
@@ -86,7 +86,7 @@ export default function Navigation() {
               <div className="md:hidden">
                 <motion.button
                   onClick={() => setIsOpen(!isOpen)}
-                  className="p-2 text-text-primary hover:text-blue-400 transition-colors"
+                  className="p-2 text-text-primary hover:text-slate-400 transition-colors"
                   whileTap={{ scale: 0.9 }}
                 >
                   {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}

@@ -5,22 +5,51 @@ import { motion } from "framer-motion";
 export default function Skills() {
   const skillCategories = [
     {
-      category: "Frontend",
+      category: "Software Engineering",
       skills: [
+        "Python",
+        "C++",
+        "C#",
+        "JavaScript",
+        "Git",
+        "VS Code",
+      ],
+      icon: "💻",
+      description: "3 intensive workshops, 2 lab residencies, and specialized courses",
+    },
+    {
+      category: "Web Technologies",
+      skills: [
+        "HTML & CSS",
         "React",
         "Next.js",
         "TypeScript",
-        "JavaScript",
-        "HTML/CSS",
         "Tailwind CSS",
         "Framer Motion",
       ],
-      icon: "💻",
+      icon: "🌐",
+      description: "Building modern, responsive web applications",
     },
     {
-      category: "Tools & Others",
-      skills: ["Git", "GitHub", "VS Code", "npm", "Vercel", "Figma"],
-      icon: "🛠️",
+      category: "Game Development & 3D",
+      skills: [
+        "Unity",
+        "3D Modeling",
+        "Graphic Design",
+        "C# (Unity)",
+      ],
+      icon: "🎮",
+      description: "3 Unity workshops, 2 3D modeling workshops, 1 graphic design workshop",
+    },
+    {
+      category: "Currently Learning",
+      skills: [
+        "Java",
+        "Backend Development",
+        "Enterprise Applications",
+      ],
+      icon: "🚀",
+      description: "Expanding backend and enterprise knowledge",
     },
   ];
 
@@ -39,7 +68,7 @@ export default function Skills() {
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.5, ease: "easeOut" },
+      transition: { duration: 0.5, ease: "easeOut" as const },
     },
   };
 
@@ -55,10 +84,10 @@ export default function Skills() {
           <h2 className="text-5xl md:text-6xl font-black text-center mb-6">
             <span className="gradient-text">Skills</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-16" />
+          <div className="w-24 h-1 bg-gradient-to-r from-slate-400 to-slate-600 rounded-full mx-auto mb-16" />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={categoryIndex}
@@ -70,14 +99,19 @@ export default function Skills() {
               whileHover={{ y: -5 }}
             >
               {/* Decorative gradient */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-2xl" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-slate-500/10 to-blue-500/10 rounded-full blur-2xl" />
 
               <div className="relative z-10">
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="text-4xl">{category.icon}</span>
-                  <h3 className="text-2xl font-bold">
-                    {category.category}
-                  </h3>
+                <div className="mb-6">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-4xl">{category.icon}</span>
+                    <h3 className="text-2xl font-bold">
+                      {category.category}
+                    </h3>
+                  </div>
+                  <p className="text-sm text-text-tertiary italic ml-14">
+                    {category.description}
+                  </p>
                 </div>
 
                 <motion.div
@@ -91,7 +125,7 @@ export default function Skills() {
                     <motion.span
                       key={skillIndex}
                       variants={itemVariants}
-                      className="px-4 py-2 rounded-lg bg-blue-500/10 text-blue-400 border border-blue-500/20 font-medium hover:border-blue-500/50 hover:bg-blue-500/20 transition-all cursor-default"
+                      className="px-4 py-2 rounded-lg bg-slate-800/50 text-slate-300 border border-slate-700 font-medium hover:border-blue-400 hover:bg-blue-500/10 hover:text-blue-400 transition-all cursor-default"
                       whileHover={{
                         scale: 1.05,
                         y: -2,

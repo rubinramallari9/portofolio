@@ -55,7 +55,7 @@ export default function Contact() {
           <h2 className="text-5xl md:text-6xl font-black text-center mb-6">
             <span className="gradient-text">Get In Touch</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-4" />
+          <div className="w-24 h-1 bg-gradient-to-r from-slate-400 to-slate-600 rounded-full mx-auto mb-4" />
           <p className="text-text-secondary text-center mb-16 max-w-2xl mx-auto">
             Have a project in mind or want to collaborate? Drop me a message!
           </p>
@@ -70,7 +70,7 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             {/* Decorative gradient */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-3xl" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-slate-500/10 to-blue-500/10 rounded-full blur-3xl" />
 
             <form onSubmit={handleSubmit} className="relative z-10 space-y-6">
               {/* Name field */}
@@ -95,7 +95,7 @@ export default function Contact() {
                   required
                   maxLength={100}
                   className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl
-                  focus:bg-white/10 focus:border-blue-500/50 focus:shadow-[0_0_20px_rgba(59,130,246,0.2)]
+                  focus:bg-white/10 focus:border-blue-400/50 focus:shadow-[0_0_20px_rgba(96,165,250,0.2)]
                   transition-all duration-300 outline-none text-text-primary placeholder:text-text-tertiary"
                   placeholder="Your name"
                 />
@@ -123,7 +123,7 @@ export default function Contact() {
                   required
                   maxLength={254}
                   className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl
-                  focus:bg-white/10 focus:border-blue-500/50 focus:shadow-[0_0_20px_rgba(59,130,246,0.2)]
+                  focus:bg-white/10 focus:border-blue-400/50 focus:shadow-[0_0_20px_rgba(96,165,250,0.2)]
                   transition-all duration-300 outline-none text-text-primary placeholder:text-text-tertiary"
                   placeholder="your.email@example.com"
                 />
@@ -151,7 +151,7 @@ export default function Contact() {
                   maxLength={100}
                   rows={5}
                   className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl
-                  focus:bg-white/10 focus:border-blue-500/50 focus:shadow-[0_0_20px_rgba(59,130,246,0.2)]
+                  focus:bg-white/10 focus:border-blue-400/50 focus:shadow-[0_0_20px_rgba(96,165,250,0.2)]
                   transition-all duration-300 outline-none text-text-primary placeholder:text-text-tertiary resize-none"
                   placeholder="Your message..."
                 />
@@ -184,7 +184,7 @@ export default function Contact() {
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                className="group relative w-full px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl font-semibold text-white overflow-hidden shadow-lg hover:shadow-[0_0_40px_rgba(59,130,246,0.5)] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full px-8 py-4 bg-blue-400 rounded-xl font-semibold text-black overflow-hidden shadow-lg hover:shadow-[0_0_40px_rgba(96,165,250,0.5)] hover:bg-blue-300 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                 whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                 initial={{ opacity: 0, y: 20 }}
@@ -192,10 +192,7 @@ export default function Contact() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.6 }}
               >
-                <span className="relative z-10">
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                {isSubmitting ? "Sending..." : "Send Message"}
               </motion.button>
             </form>
           </motion.div>

@@ -64,7 +64,7 @@ export default function Projects() {
           <h2 className="text-5xl md:text-6xl font-black text-center mb-6">
             <span className="gradient-text">My Projects</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-16" />
+          <div className="w-24 h-1 bg-gradient-to-r from-slate-400 to-slate-600 rounded-full mx-auto mb-16" />
         </motion.div>
 
         <motion.div
@@ -84,7 +84,7 @@ export default function Projects() {
               whileHover={{ y: -5 }}
             >
               {/* Gradient overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:to-purple-500/10 transition-all duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-500/0 to-blue-500/0 group-hover:from-slate-500/5 group-hover:to-blue-500/10 transition-all duration-500" />
 
               {/* Content */}
               <div className="relative z-10 p-8">
@@ -93,7 +93,7 @@ export default function Projects() {
                     {project.title}
                   </h3>
                   {project.featured && (
-                    <span className="px-3 py-1 text-xs font-semibold bg-gradient-to-r from-blue-500 to-purple-500 rounded-full text-white">
+                    <span className="px-3 py-1 text-xs font-semibold bg-blue-400 rounded-full text-black">
                       Featured
                     </span>
                   )}
@@ -108,7 +108,7 @@ export default function Projects() {
                   {project.technologies.map((tech, techIndex) => (
                     <motion.span
                       key={techIndex}
-                      className="px-3 py-1 text-sm rounded-lg bg-blue-500/10 text-blue-400 border border-blue-500/20 hover:border-blue-500/50 transition-colors"
+                      className="px-3 py-1 text-sm rounded-lg bg-slate-800/50 text-slate-300 border border-slate-700 hover:border-blue-400 hover:text-blue-400 transition-colors"
                       whileHover={{ scale: 1.05 }}
                     >
                       {tech}
@@ -129,7 +129,7 @@ export default function Projects() {
                   </motion.a>
                   <motion.a
                     href={project.demo}
-                    className="flex items-center gap-2 text-text-secondary hover:text-purple-400 transition-colors group/link"
+                    className="flex items-center gap-2 text-text-secondary hover:text-blue-400 transition-colors group/link"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
