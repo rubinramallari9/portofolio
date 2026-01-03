@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { HiArrowDown } from "react-icons/hi";
+import Starfield from "./Starfield";
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -89,6 +90,9 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
+      {/* 3D Starfield Background */}
+      <Starfield />
+
       {/* Mouse Follower Light Effect */}
       <div
         className="pointer-events-none fixed inset-0 z-0 transition-opacity duration-300"
