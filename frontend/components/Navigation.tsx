@@ -52,10 +52,24 @@ export default function Navigation() {
             <div className="flex justify-between items-center">
               {/* Logo */}
               <motion.div
-                className="text-2xl font-bold"
+                className="text-xl font-mono font-bold group/logo cursor-pointer"
                 whileHover={{ scale: 1.05 }}
               >
-                <span className="gradient-text">Portfolio</span>
+                <span
+                  className="text-blue-400"
+                  style={{ textShadow: '0 0 10px rgba(96, 165, 250, 0.5)' }}
+                >
+                  &lt;
+                </span>
+                <span className="text-slate-400 group-hover/logo:text-white transition-colors duration-300">
+                  Rubin
+                </span>
+                <span
+                  className="text-blue-400"
+                  style={{ textShadow: '0 0 10px rgba(96, 165, 250, 0.5)' }}
+                >
+                  {' '}/&gt;
+                </span>
               </motion.div>
 
               {/* Desktop Navigation */}
