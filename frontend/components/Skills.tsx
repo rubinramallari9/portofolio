@@ -80,7 +80,7 @@ export default function Skills() {
           <h2 className="text-5xl md:text-6xl font-black text-center mb-6">
             <span className="gradient-text">Skills</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-slate-400 to-slate-600 rounded-full mx-auto mb-16" />
+          <div className="w-24 h-1 bg-gradient-to-r from-sky-400 to-blue-600 rounded-full mx-auto mb-16" />
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">

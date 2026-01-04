@@ -55,7 +55,7 @@ export default function Contact() {
           <h2 className="text-5xl md:text-6xl font-black text-center mb-6">
             <span className="gradient-text">Get In Touch</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-slate-400 to-slate-600 rounded-full mx-auto mb-4" />
+          <div className="w-24 h-1 bg-gradient-to-r from-sky-400 to-blue-600 rounded-full mx-auto mb-4" />
           <p className="text-text-secondary text-center mb-16 max-w-2xl mx-auto">
             Have a project in mind or want to collaborate? Drop me a message!
           </p>

@@ -85,7 +85,7 @@ export default function Projects() {
           <h2 className="text-5xl md:text-6xl font-black text-center mb-6">
             <span className="gradient-text">My Projects</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-slate-400 to-slate-600 rounded-full mx-auto mb-12" />
+          <div className="w-24 h-1 bg-gradient-to-r from-sky-400 to-blue-600 rounded-full mx-auto mb-12" />
         </motion.div>
 
         {/* Category Tabs */}

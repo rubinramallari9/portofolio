@@ -48,7 +48,7 @@ export default function About() {
           <h2 className="text-5xl md:text-6xl font-black text-center mb-6">
             <span className="gradient-text">About Me</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-slate-400 to-slate-600 rounded-full mx-auto mb-16" />
+          <div className="w-24 h-1 bg-gradient-to-r from-sky-400 to-blue-600 rounded-full mx-auto mb-16" />
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
@@ -124,13 +124,13 @@ export default function About() {
           <h3 className="text-4xl md:text-5xl font-black text-center mb-4">
             <span className="gradient-text">Press & Recognition</span>
           </h3>
-          <div className="w-20 h-1 bg-gradient-to-r from-slate-400 to-slate-600 rounded-full mx-auto mb-12" />
+          <div className="w-20 h-1 bg-gradient-to-r from-sky-400 to-blue-600 rounded-full mx-auto mb-12" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {recognitions.map((recognition, index) => (
               <motion.div
                 key={index}
-                className="group relative bg-[#0B0E14] border border-slate-700 rounded-2xl overflow-hidden"
+                className="group relative bg-[#162942] border border-blue-900/30 rounded-2xl overflow-hidden"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
