@@ -11,8 +11,6 @@ export default function Skills() {
         "C++",
         "C#",
         "JavaScript",
-        "Git",
-        "VS Code",
       ],
       icon: "💻",
       description: "3 intensive workshops, 2 lab residencies, and specialized courses",
@@ -45,11 +43,11 @@ export default function Skills() {
       category: "Currently Learning",
       skills: [
         "Java",
-        "Backend Development",
-        "Enterprise Applications",
+        "React",
+        "Next.js",
       ],
       icon: "🚀",
-      description: "Expanding backend and enterprise knowledge",
+      description: "Expanding full-stack development knowledge",
     },
   ];
 
