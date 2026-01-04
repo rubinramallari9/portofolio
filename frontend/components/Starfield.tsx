@@ -177,7 +177,8 @@ export default function Starfield() {
     <div className="fixed inset-0 -z-10">
       <Canvas
         camera={{ position: [0, 0, 50], fov: 75, near: 0.1, far: 1000 }}
-        style={{ background: "#000000" }}
+        style={{ background: "#0A1929" }}
+        gl={{ alpha: false, antialias: true, powerPreference: "high-performance" }}
       >
         <Stars />
       </Canvas>
