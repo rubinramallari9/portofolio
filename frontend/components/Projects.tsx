@@ -1,10 +1,23 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { HiExternalLink } from "react-icons/hi";
 import { FaGithub } from "react-icons/fa";
+import { useState } from "react";
+
+type Category = "All" | "Web Development" | "Game Development" | "AI/ML" | "Robotics";
 
 export default function Projects() {
+  const [activeCategory, setActiveCategory] = useState<Category>("All");
+
+  const categories: Category[] = [
+    "All",
+    "Web Development",
+    "Game Development",
+    "AI/ML",
+    "Robotics",
+  ];
+
   const projects = [
     {
       title: "Portfolio Website",
@@ -14,6 +27,7 @@ export default function Projects() {
       github: "#",
       demo: "#",
       featured: true,
+      category: "Web Development" as Category,
     },
     {
       title: "Project Two",
@@ -22,6 +36,7 @@ export default function Projects() {
       technologies: ["React", "TypeScript", "Tailwind CSS"],
       github: "#",
       demo: "#",
+      category: "Web Development" as Category,
     },
     {
       title: "Project Three",
@@ -30,8 +45,14 @@ export default function Projects() {
       technologies: ["Next.js", "React", "JavaScript"],
       github: "#",
       demo: "#",
+      category: "Game Development" as Category,
     },
   ];
+
+  const filteredProjects =
+    activeCategory === "All"
+      ? projects
+      : projects.filter((project) => project.category === activeCategory);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -64,17 +85,45 @@ export default function Projects() {
           <h2 className="text-5xl md:text-6xl font-black text-center mb-6">
             <span className="gradient-text">My Projects</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-slate-400 to-slate-600 rounded-full mx-auto mb-16" />
+          <div className="w-24 h-1 bg-gradient-to-r from-slate-400 to-slate-600 rounded-full mx-auto mb-12" />
         </motion.div>
 
+        {/* Category Tabs */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          className="flex flex-wrap justify-center gap-3 mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
-          {projects.map((project, index) => (
+          {categories.map((category) => (
+            <motion.button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                activeCategory === category
+                  ? "bg-blue-500 text-white shadow-lg shadow-blue-500/30"
+                  : "bg-slate-800/50 text-slate-300 border border-slate-700 hover:border-blue-400 hover:text-blue-400"
+              }`}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {category}
+            </motion.button>
+          ))}
+        </motion.div>
+
+        {/* Projects Grid */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeCategory}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+          >
+            {filteredProjects.map((project, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
@@ -141,6 +190,7 @@ export default function Projects() {
             </motion.div>
           ))}
         </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );
