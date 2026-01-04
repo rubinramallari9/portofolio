@@ -20,8 +20,7 @@ export default function About() {
       title: "🏅Sukses në Konkursin Kombëtar STEAM+ 2025!",
       caption:
         "Jemi krenarë për nxënësit tanë që u shpërblyen si fitues në konkursin  kombëtar për talentet e reja, organizuar nga STEAM+ Albania dhe Universiteti Barleti!\n\n🏆 Tenderly – një platformë inovative për menaxhimin e tenderave me AI, zhvilluar nga Rubin Ramallari, Aron Gjoka, Rexhino Durro dhe Andrin Gjana.",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6ESF9FADxJhGkBpIb3LiHvBZdU8hPIZK2sw&s",
+      image: "/images/barleti-steam.jpg",
       link: "https://www.instagram.com/p/DKZJBxZtSSs/?img_index=3",
     },
     {
@@ -30,8 +29,7 @@ export default function About() {
       title: "Student Spotlight: Progresi në Programim & Game Dev",
       caption:
         "Rubini është një nga studentët tanë më krijues. Prej më se një viti, ai na ka treguar se është mjaft i talentuar dhe ambicioz në Programim, Robotikë dhe Game Development.",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfQVjhHyRCFn2g7n9hcJrGZ6497ZK_tF6tPw&s",
+      image: "/images/tumo-spotlight.jpg",
       link: "https://www.instagram.com/p/CenpxqntPTu/",
     },
   ];
@@ -163,6 +161,12 @@ export default function About() {
                       src={recognition.image}
                       alt={recognition.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      style={{
+                        imageRendering: '-webkit-optimize-contrast',
+                        WebkitBackfaceVisibility: 'hidden',
+                        backfaceVisibility: 'hidden',
+                      }}
+                      loading="lazy"
                     />
                   </div>
                 )}

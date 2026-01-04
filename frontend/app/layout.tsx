@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rubin Ramallari - Teen Developer Portfolio",
+  title: "Rubin Ramallari - Portfolio",
   description: "Rubin Ramallari's portfolio website showcasing web development projects built with Next.js",
   icons: {
     icon: [
