@@ -1,20 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaInstagram } from "react-icons/fa";
 import { HiArrowUp } from "react-icons/hi";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const socialLinks = [
-    { icon: FaGithub, href: "https://github.com/yourusername", label: "GitHub" },
-    { icon: FaLinkedin, href: "https://linkedin.com/in/yourusername", label: "LinkedIn" },
-    { icon: FaTwitter, href: "https://twitter.com/yourusername", label: "Twitter" },
+    { icon: FaGithub, href: "https://github.com/rubinramallari9", label: "GitHub" },
+    { icon: FaInstagram, href: "https://www.instagram.com/ramallarirubin/", label: "Instagram" },
   ];
 
   return (
@@ -32,11 +29,25 @@ export default function Footer() {
         >
           {/* Logo/Brand */}
           <div className="text-center md:text-left">
-            <h3 className="text-2xl font-bold gradient-text mb-2">
-              Portfolio
+            <h3 className="text-2xl font-mono font-bold mb-2">
+              <span
+                className="text-blue-400"
+                style={{ textShadow: '0 0 10px rgba(96, 165, 250, 0.5)' }}
+              >
+                &lt;
+              </span>
+              <span className="text-slate-400">
+                Rubin
+              </span>
+              <span
+                className="text-blue-400"
+                style={{ textShadow: '0 0 10px rgba(96, 165, 250, 0.5)' }}
+              >
+                {' '}/&gt;
+              </span>
             </h3>
             <p className="text-text-tertiary text-sm">
-              &copy; {currentYear} Rubin Ramallari. All rights reserved.
+              &copy; 2026 Rubin Ramallari. All rights reserved.
             </p>
           </div>
 
@@ -68,24 +79,6 @@ export default function Footer() {
           >
             <HiArrowUp className="text-xl text-text-secondary group-hover:text-purple-400 transition-colors" />
           </motion.button>
-        </motion.div>
-
-        {/* Bottom text */}
-        <motion.div
-          className="mt-12 text-center text-sm text-text-tertiary"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-        >
-          <p>
-            Built with{" "}
-            <span className="text-blue-400">Next.js</span>
-            {" "}+{" "}
-            <span className="text-purple-400">TypeScript</span>
-            {" "}+{" "}
-            <span className="gradient-text">Passion</span>
-          </p>
         </motion.div>
       </div>
     </footer>
