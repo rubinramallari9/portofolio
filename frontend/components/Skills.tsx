@@ -43,11 +43,9 @@ export default function Skills() {
       category: "Currently Learning",
       skills: [
         "Java",
-        "React",
-        "Next.js",
       ],
       icon: "🚀",
-      description: "Expanding full-stack development knowledge",
+      description: "Expanding backend development knowledge",
     },
   ];
 
