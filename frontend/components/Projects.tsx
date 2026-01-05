@@ -93,6 +93,16 @@ export default function Projects() {
       demo: "https://portfolio.al.tumo.world/p/qy2p486xv3we1dz81yg8e7nrgl1j5moz/project/61a119b044ed9206c4632db6",
       category: "Robotics" as Category,
     },
+    {
+      title: "Tenderly",
+      description:
+        "Award-winning AI-powered platform for tender management. Winner at the STEAM+ Albania National Competition organized by STEAM+ and Barleti University. Built with TypeScript and Python.",
+      technologies: ["TypeScript", "Python", "AI", "Machine Learning"],
+      github: "https://github.com/rubinramallari9/aadf",
+      demo: "https://github.com/rubinramallari9/aadf",
+      featured: true,
+      category: "AI" as Category,
+    },
   ];
 
   const filteredProjects =
