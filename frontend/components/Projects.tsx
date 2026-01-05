@@ -5,7 +5,7 @@ import { HiExternalLink } from "react-icons/hi";
 import { FaGithub } from "react-icons/fa";
 import { useState } from "react";
 
-type Category = "All" | "Web Development" | "Game Development" | "3D & Graphic Design" | "Robotics";
+type Category = "All" | "Web Development" | "Game Development" | "3D & Graphic Design" | "Robotics" | "AI";
 
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState<Category>("All");
@@ -13,6 +13,7 @@ export default function Projects() {
   const categories: Category[] = [
     "All",
     "Web Development",
+    "AI",
     "Game Development",
     "3D & Graphic Design",
     "Robotics",
