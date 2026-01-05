@@ -74,6 +74,24 @@ export default function Projects() {
       demo: "https://portfolio.al.tumo.world/p/qy2p486xv3we1dz81yg8e7nrgl1j5moz/project/61a10bb544ed9206887fecd0",
       category: "3D & Graphic Design" as Category,
     },
+    {
+      title: "Coin Watcher",
+      description:
+        "Real-time Bitcoin price tracker combining Python and Arduino. Fetches live BTC prices and displays them on a 16x2 LCD screen connected to Arduino microcontroller.",
+      technologies: ["Python", "Arduino", "C++", "IoT"],
+      github: "https://github.com/rubinramallari9/CoinWatcher",
+      demo: "https://github.com/rubinramallari9/CoinWatcher",
+      category: "Robotics" as Category,
+    },
+    {
+      title: "Robotics Workshop 2",
+      description:
+        "Advanced robotics workshop project from TUMO, exploring robotics principles, hardware integration, and automation systems.",
+      technologies: ["Robotics", "Arduino", "Electronics"],
+      github: "#",
+      demo: "https://portfolio.al.tumo.world/p/qy2p486xv3we1dz81yg8e7nrgl1j5moz/project/61a119b044ed9206c4632db6",
+      category: "Robotics" as Category,
+    },
   ];
 
   const filteredProjects =
@@ -194,7 +212,7 @@ export default function Projects() {
 
                 {/* Links */}
                 <div className="flex gap-4">
-                  {project.category !== "3D & Graphic Design" && (
+                  {project.github !== "#" && (
                     <motion.a
                       href={project.github}
                       className="flex items-center gap-2 text-text-secondary hover:text-blue-400 transition-colors group/link"
