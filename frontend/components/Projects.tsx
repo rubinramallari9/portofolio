@@ -5,7 +5,7 @@ import { HiExternalLink } from "react-icons/hi";
 import { FaGithub } from "react-icons/fa";
 import { useState } from "react";
 
-type Category = "All" | "Web Development" | "Game Development" | "AI/ML" | "Robotics";
+type Category = "All" | "Web Development" | "Game Development" | "3D & Graphic Design" | "Robotics";
 
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState<Category>("All");
@@ -14,7 +14,7 @@ export default function Projects() {
     "All",
     "Web Development",
     "Game Development",
-    "AI/ML",
+    "3D & Graphic Design",
     "Robotics",
   ];
 
@@ -47,6 +47,33 @@ export default function Projects() {
       demo: "#",
       category: "Game Development" as Category,
     },
+    {
+      title: "Graphic Design Workshop",
+      description:
+        "Creative graphic design projects completed during TUMO workshop, showcasing visual design principles, typography, and digital illustration skills.",
+      technologies: ["Photoshop", "Illustrator", "Design Principles"],
+      github: "#",
+      demo: "https://filealtumoworld.blob.core.windows.net/60a7b0bacce446000b570d4d/cd7073f1-9823-43b7-af99-52f0c2220cc0",
+      category: "3D & Graphic Design" as Category,
+    },
+    {
+      title: "3D Workshop 1",
+      description:
+        "First 3D modeling workshop project exploring fundamental 3D modeling techniques, texturing, and rendering in a professional 3D environment.",
+      technologies: ["Blender", "3D Modeling", "Texturing"],
+      github: "#",
+      demo: "https://portfolio.al.tumo.world/p/qy2p486xv3we1dz81yg8e7nrgl1j5moz/project/61a10fdc44ed9206970e5005",
+      category: "3D & Graphic Design" as Category,
+    },
+    {
+      title: "3D Workshop 2",
+      description:
+        "Advanced 3D modeling workshop project demonstrating improved skills in complex modeling, lighting, and material creation.",
+      technologies: ["Blender", "3D Modeling", "Lighting", "Materials"],
+      github: "#",
+      demo: "https://portfolio.al.tumo.world/p/qy2p486xv3we1dz81yg8e7nrgl1j5moz/project/61a10bb544ed9206887fecd0",
+      category: "3D & Graphic Design" as Category,
+    },
   ];
 
   const filteredProjects =
@@ -69,7 +96,7 @@ export default function Projects() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: { duration: 0.6, ease: "easeOut" as const },
     },
   };
 
@@ -167,15 +194,17 @@ export default function Projects() {
 
                 {/* Links */}
                 <div className="flex gap-4">
-                  <motion.a
-                    href={project.github}
-                    className="flex items-center gap-2 text-text-secondary hover:text-blue-400 transition-colors group/link"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <FaGithub className="text-xl" />
-                    <span className="font-semibold">Code</span>
-                  </motion.a>
+                  {project.category !== "3D & Graphic Design" && (
+                    <motion.a
+                      href={project.github}
+                      className="flex items-center gap-2 text-text-secondary hover:text-blue-400 transition-colors group/link"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <FaGithub className="text-xl" />
+                      <span className="font-semibold">Code</span>
+                    </motion.a>
+                  )}
                   <motion.a
                     href={project.demo}
                     className="flex items-center gap-2 text-text-secondary hover:text-blue-400 transition-colors group/link"

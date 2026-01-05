@@ -136,7 +136,7 @@ export default function Skills() {
                         y: {
                           duration: 3 + skillIndex * 0.2,
                           repeat: Infinity,
-                          ease: "easeInOut",
+                          ease: "easeInOut" as const,
                         },
                       }}
                     >
