@@ -23,7 +23,6 @@ export default function Skills() {
         "Next.js",
         "TypeScript",
         "Tailwind CSS",
-        "Framer Motion",
       ],
       icon: "🌐",
       description: "Building modern, responsive web applications",
@@ -42,10 +41,13 @@ export default function Skills() {
     {
       category: "Currently Learning",
       skills: [
+        "React",
+        "Next.js",
+        "TypeScript",
         "Java",
       ],
       icon: "🚀",
-      description: "Expanding backend development knowledge",
+      description: "Deepening modern web development expertise",
     },
   ];
 

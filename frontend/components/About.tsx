@@ -102,7 +102,9 @@ export default function About() {
                 transition={{ delay: 0.5 }}
               >
                 I'm continuously expanding my skill set—currently diving deeper into{" "}
-                <span className="text-blue-400 font-semibold">Java</span> to strengthen my backend and enterprise
+                <span className="text-blue-400 font-semibold">React</span>,{" "}
+                <span className="text-blue-400 font-semibold">Next.js</span>, and{" "}
+                <span className="text-blue-400 font-semibold">TypeScript</span> to strengthen my modern web
                 development capabilities. I thrive on tackling complex challenges and transforming ideas into
                 functional, elegant solutions through{" "}
                 <span className="text-slate-300 font-semibold">continuous learning</span> and practical application.
