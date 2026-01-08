@@ -49,12 +49,39 @@ export default function Projects() {
       category: "Web Development" as Category,
     },
     {
-      title: "Project Three",
+      title: "Game Development 1 - Viking Map",
       description:
-        "Add your third project here. Showcase your skills and what makes this project unique and interesting.",
-      technologies: ["Next.js", "React", "JavaScript"],
+        "Created a detailed Viking-themed game map, showcasing level design principles, environmental storytelling, and atmospheric world-building techniques.",
+      technologies: ["Unity", "Level Design", "3D Modeling"],
       github: "#",
-      demo: "#",
+      demo: "https://drive.google.com/file/d/1oFqq6QUtwZ981OJ15ounUSMQRJXaouEu/view?usp=drive_link",
+      category: "Game Development" as Category,
+    },
+    {
+      title: "Game Development 3 - Programming & Story",
+      description:
+        "Advanced game development project featuring gameplay programming, multiple levels, and narrative design with branching story paths and player progression systems.",
+      technologies: ["Unity", "C#", "Game Design", "Narrative Design"],
+      github: "#",
+      demo: "https://drive.google.com/drive/folders/1g4RQ7ZrSGuKDHoieJfmueDIwErj6MnSi?usp=drive_link",
+      category: "Game Development" as Category,
+    },
+    {
+      title: "Zombie Runner",
+      description:
+        "First-person shooter game featuring multiple levels, zombie combat mechanics, scoring system, and special player abilities. Complete FPS experience with progressive difficulty.",
+      technologies: ["Unity", "C#", "FPS Mechanics", "AI"],
+      github: "#",
+      demo: "https://drive.google.com/drive/folders/1UShqIbDAjVIxY1k-q7Bff7JGMcux374N?usp=sharing",
+      category: "Game Development" as Category,
+    },
+    {
+      title: "VR Experience",
+      description:
+        "Virtual Reality project implementing VR controls, object interaction mechanics, and immersive movement systems. Explores VR development fundamentals and user interaction design.",
+      technologies: ["Unity", "VR Development", "C#", "Interactive Design"],
+      github: "#",
+      demo: "https://drive.google.com/drive/folders/1UShqIbDAjVIxY1k-q7Bff7JGMcux374N?usp=sharing",
       category: "Game Development" as Category,
     },
     {
