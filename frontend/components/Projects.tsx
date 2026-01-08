@@ -26,17 +26,26 @@ export default function Projects() {
         "A modern portfolio website built with Next.js featuring a contact form, project showcase, and modern glassmorphism design.",
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
       github: "#",
-      demo: "#",
+      demo: "https://rubinramallari.com",
       featured: true,
       category: "Web Development" as Category,
     },
     {
-      title: "Project Two",
+      title: "Averon",
       description:
-        "Add your second project here. Describe what it does and what technologies you used to build it.",
-      technologies: ["React", "TypeScript", "Tailwind CSS"],
+        "Full-stack web application for Averon Agency featuring modern design, email integration, performance optimization, and comprehensive SEO implementation. Built with Next.js and Python backend services.",
+      technologies: ["Next.js", "TypeScript", "Python", "Docker", "Nginx"],
       github: "#",
-      demo: "#",
+      demo: "https://averon.agency",
+      category: "Web Development" as Category,
+    },
+    {
+      title: "Rasim Rama",
+      description:
+        "Professional portfolio website built with Next.js and TypeScript, featuring responsive design and optimized typography with Vercel's Geist font family.",
+      technologies: ["Next.js", "TypeScript", "CSS", "React"],
+      github: "#",
+      demo: "https://rasimrama.com",
       category: "Web Development" as Category,
     },
     {
