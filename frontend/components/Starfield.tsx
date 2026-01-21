@@ -4,12 +4,19 @@ import { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
+// Detect reduced motion preference
+const prefersReducedMotion = typeof window !== "undefined"
+  ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  : false;
+
 function Stars() {
   const pointsRef = useRef<THREE.Points>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [scrollVelocity, setScrollVelocity] = useState(0);
+  const rafRef = useRef<number | null>(null);
 
-  const STAR_COUNT = 3000;
+  // Reduced star count for better performance (was 3000)
+  const STAR_COUNT = 1500;
   const SPREAD = 200;
 
   // Create circular texture for stars
@@ -53,16 +60,23 @@ function Stars() {
     };
   }, []);
 
-  // Track mouse for warp effect
+  // Throttled mouse tracking for warp effect
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth) * 2 - 1;
-      const y = -(e.clientY / window.innerHeight) * 2 + 1;
-      setMousePosition({ x, y });
+      if (rafRef.current) return;
+      rafRef.current = requestAnimationFrame(() => {
+        const x = (e.clientX / window.innerWidth) * 2 - 1;
+        const y = -(e.clientY / window.innerHeight) * 2 + 1;
+        setMousePosition({ x, y });
+        rafRef.current = null;
+      });
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
   }, []);
 
   // Generate star positions and colors
@@ -104,9 +118,15 @@ function Stars() {
     return { positions, colors, velocities };
   }, []);
 
-  // Animation loop
-  useFrame((state, delta) => {
+  // Animation loop - respects reduced motion preference
+  useFrame((_, delta) => {
     if (!pointsRef.current) return;
+
+    // Skip heavy animations if user prefers reduced motion
+    if (prefersReducedMotion) {
+      pointsRef.current.rotation.y += delta * 0.01;
+      return;
+    }
 
     const positions = pointsRef.current.geometry.attributes.position
       .array as Float32Array;
@@ -147,15 +167,11 @@ function Stars() {
       <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
-          count={STAR_COUNT}
-          array={positions}
-          itemSize={3}
+          args={[positions, 3]}
         />
         <bufferAttribute
           attach="attributes-color"
-          count={STAR_COUNT}
-          array={colors}
-          itemSize={3}
+          args={[colors, 3]}
         />
       </bufferGeometry>
       <pointsMaterial

@@ -1,22 +1,36 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 import { HiArrowDown } from "react-icons/hi";
-import Starfield from "./Starfield";
+import dynamic from "next/dynamic";
+
+// Lazy load Starfield - heavy Three.js component
+const Starfield = dynamic(() => import("./Starfield"), {
+  ssr: false,
+  loading: () => <div className="fixed inset-0 -z-10 bg-[#0A1929]" />,
+});
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const rafRef = useRef<number | null>(null);
 
-  // Mouse follower effect
+  // Throttled mouse follower effect using RAF
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      if (rafRef.current) return;
+      rafRef.current = requestAnimationFrame(() => {
+        setMousePosition({ x: e.clientX, y: e.clientY });
+        rafRef.current = null;
+      });
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
   }, []);
 
   const scrollToSection = (id: string) => {
@@ -56,7 +70,7 @@ export default function Hero() {
         delayChildren: 0.1,
       },
     },
-  };
+  } as const;
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -64,7 +78,7 @@ export default function Hero() {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 100,
         damping: 10,
       },
@@ -77,7 +91,7 @@ export default function Hero() {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 80,
         damping: 12,
         mass: 1,
