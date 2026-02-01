@@ -22,7 +22,8 @@ export default function Contact() {
     setStatus({ type: "", message: "" });
 
     try {
-      const response = await fetch("http://localhost:8000/api/contacts/", {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+      const response = await fetch(`${apiUrl}/api/contacts/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

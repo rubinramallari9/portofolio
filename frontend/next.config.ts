@@ -1,14 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // ============================================
-  // NUCLEAR OPTION: Disable ALL Dev Indicators
-  // ============================================
-  devIndicators: {
-    buildActivity: false,        // Disables the "building..." indicator
-    buildActivityPosition: "bottom-right",
-    appIsrStatus: false,          // Disables ISR status indicator
-  },
+  // Disable dev indicators
+  devIndicators: false,
 
   // Compiler optimizations
   compiler: {
