@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { FiExternalLink } from "react-icons/fi";
 
@@ -105,13 +106,16 @@ export default function FeaturedIn() {
                 </a>
               )}
 
-              {/* Image if available */}
+              {/* Image if available - optimized with next/image */}
               {recognition.image && (
-                <div className="w-full h-48 overflow-hidden bg-slate-900">
-                  <img
+                <div className="relative w-full h-48 overflow-hidden bg-slate-900">
+                  <Image
                     src={recognition.image}
                     alt={recognition.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
                   />
                 </div>
               )}

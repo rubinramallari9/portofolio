@@ -3,13 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { HiArrowDown } from "react-icons/hi";
-import dynamic from "next/dynamic";
-
-// Lazy load Starfield - heavy Three.js component
-const Starfield = dynamic(() => import("./Starfield"), {
-  ssr: false,
-  loading: () => <div className="fixed inset-0 -z-10 bg-[#0A1929]" />,
-});
+import StarfieldCSS from "./StarfieldCSS";
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -104,8 +98,8 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
-      {/* 3D Starfield Background */}
-      <Starfield />
+      {/* CSS Starfield Background - No JS, GPU accelerated */}
+      <StarfieldCSS />
 
       {/* Mouse Follower Light Effect */}
       <div
@@ -115,12 +109,12 @@ export default function Hero() {
         }}
       />
 
-      {/* Ambient background effects */}
+      {/* Ambient background effects - reduced blur for performance */}
       <div className="absolute inset-0">
         {/* Gradient mesh background - Minimalist Slate */}
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-slate-500/10 rounded-full mix-blend-multiply filter blur-3xl animate-float" />
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-slate-400/10 rounded-full mix-blend-multiply filter blur-3xl animate-float" style={{ animationDelay: "2s" }} />
-        <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-blue-500/10 rounded-full mix-blend-multiply filter blur-3xl animate-float" style={{ animationDelay: "4s" }} />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-slate-500/10 rounded-full mix-blend-multiply filter blur-xl opacity-60" />
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-slate-400/10 rounded-full mix-blend-multiply filter blur-xl opacity-60" />
+        <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-blue-500/10 rounded-full mix-blend-multiply filter blur-xl opacity-60" />
 
         {/* Grid overlay */}
         <div
@@ -157,9 +151,9 @@ export default function Hero() {
               <span className="gradient-text bg-[length:200%_auto]">
                 Rubin Ramallari
               </span>
-              {/* Shimmer overlay */}
+              {/* Shimmer overlay - limited repeats for performance */}
               <motion.span
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent bg-[length:200%_100%]"
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent bg-[length:200%_100%]"
                 style={{
                   backgroundClip: "text",
                   WebkitBackgroundClip: "text",
@@ -169,9 +163,9 @@ export default function Hero() {
                   backgroundPosition: ["200% 0", "-200% 0"],
                 }}
                 transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  repeatDelay: 5,
+                  duration: 2,
+                  repeat: 2,
+                  repeatDelay: 8,
                   ease: "linear",
                 }}
               />

@@ -54,7 +54,7 @@
 @layer utilities {
   .glass {
     background: var(--glass-bg);
-    backdrop-filter: blur(12px) saturate(180%);
+    backdrop-filter: blur(8px) saturate(150%);
     border: 1px solid rgba(248, 250, 252, 0.1);
   }
 
@@ -113,4 +113,47 @@
   50% {
     opacity: 0.5;
   }
+}
+
+/* CSS Starfield animations - GPU accelerated, no JS */
+@keyframes stars-slow {
+  from {
+    transform: translateY(0) translateZ(0);
+  }
+  to {
+    transform: translateY(-200px) translateZ(0);
+  }
+}
+
+@keyframes stars-medium {
+  from {
+    transform: translateY(0) translateZ(0);
+  }
+  to {
+    transform: translateY(-250px) translateZ(0);
+  }
+}
+
+@keyframes stars-fast {
+  from {
+    transform: translateY(0) translateZ(0);
+  }
+  to {
+    transform: translateY(-300px) translateZ(0);
+  }
+}
+
+.animate-stars-slow {
+  animation: stars-slow 120s linear infinite;
+  will-change: transform;
+}
+
+.animate-stars-medium {
+  animation: stars-medium 80s linear infinite;
+  will-change: transform;
+}
+
+.animate-stars-fast {
+  animation: stars-fast 60s linear infinite;
+  will-change: transform;
 }

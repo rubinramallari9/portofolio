@@ -129,16 +129,6 @@ export default function Skills() {
                         y: -2,
                         boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
                       }}
-                      animate={{
-                        y: [0, -5, 0],
-                      }}
-                      transition={{
-                        y: {
-                          duration: 3 + skillIndex * 0.2,
-                          repeat: Infinity,
-                          ease: "easeInOut" as const,
-                        },
-                      }}
                     >
                       {skill}
                     </motion.span>
